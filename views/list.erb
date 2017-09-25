@@ -22,8 +22,7 @@
 <h3>Add a task to <%= @list.name() %></h3>
 
 <form action="/tasks" method="post">
-  <input id="list_id" name="list_id" value=" <%= @list.id() %>">
-
+  <input id="list_id" name="list_id" type="hidden" value=" <%= @list.id() %>">
   <label for="description">Description of the task:</label>
   <input id="description" name="description" type ="text">
   <button type="submit" class="btn">Add task</button>
@@ -33,8 +32,11 @@
 
 <div class="container">
 
-  <a href="/">home</a>
-  <a href="/lists">View All Lists</a>
-  <a href="/lists/new">Add New List</a>
-  <a href="/lists/new">Add New Task</a>
+  <a class="btn" href="/">home</a>
+  <a class="btn" href="/lists">View All Lists</a>
+  <a class="btn"href="/lists/new">Add New List</a>
+  <button type="button" name="button btn"><a href="/lists/new">Add New list</a></button>
 </div>
+
+<p><a href="/lists/<%= @list.id() %>/edit">Edit <%= @list.name() %> list</a></p>
+<p><a href="/">Return to Main Page</a></p>
